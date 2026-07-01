@@ -1,567 +1,1054 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Javier's GL Project – Computer Architecture</title>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    :root {
-      --bg:        #0a0e1a;
-      --surface:   #111827;
-      --border:    #1e2d45;
-      --accent:    #00d4ff;
-      --accent2:   #7c3aed;
-      --text:      #e2e8f0;
-      --muted:     #64748b;
-      --white:     #ffffff;
-    }
+    <title>Foundations of Computer Architecture | Javier</title>
 
-    html { scroll-behavior: smooth; }
+    <meta name="description"
+        content="Guided Learning Project documenting my journey into Computer Architecture through research, interviews, hands-on hardware exploration and reflection.">
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 16px;
-      line-height: 1.7;
-    }
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    /* NAV */
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(10,14,26,0.85);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid var(--border);
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem; height: 56px;
-    }
-    .nav-logo {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.85rem;
-      color: var(--accent);
-      letter-spacing: 0.05em;
-    }
-    .nav-links { display: flex; gap: 1.5rem; list-style: none; }
-    .nav-links a {
-      color: var(--muted); text-decoration: none; font-size: 0.85rem;
-      transition: color 0.2s;
-    }
-    .nav-links a:hover { color: var(--accent); }
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+        rel="stylesheet">
 
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
-      padding: 7rem 2rem 4rem;
-      max-width: 900px; margin: 0 auto;
-      position: relative;
-    }
-    .hero-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      margin-bottom: 1.5rem;
-      display: flex; align-items: center; gap: 0.75rem;
-    }
-    .hero-tag::before {
-      content: '';
-      display: inline-block; width: 32px; height: 1px;
-      background: var(--accent);
-    }
-    h1 {
-      font-size: clamp(2.4rem, 6vw, 4.5rem);
-      font-weight: 700;
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1.5rem;
-    }
-    h1 span { color: var(--accent); }
-    .hero-sub {
-      font-size: 1.1rem;
-      color: var(--muted);
-      max-width: 560px;
-      margin-bottom: 2.5rem;
-    }
-    .hero-meta {
-      display: flex; gap: 2rem; flex-wrap: wrap;
-    }
-    .meta-item { font-size: 0.8rem; color: var(--muted); }
-    .meta-item strong { display: block; color: var(--text); font-size: 0.9rem; }
-
-    /* CIRCUIT LINE DECORATION */
-    .circuit-line {
-      position: absolute; right: 0; top: 50%;
-      transform: translateY(-50%);
-      opacity: 0.07;
-      pointer-events: none;
-    }
-
-    /* SECTIONS */
-    section {
-      max-width: 900px; margin: 0 auto;
-      padding: 5rem 2rem;
-      border-top: 1px solid var(--border);
-    }
-    .section-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      margin-bottom: 0.75rem;
-    }
-    h2 {
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      margin-bottom: 2rem;
-    }
-
-    /* ABOUT GRID */
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1rem;
-      margin-top: 1.5rem;
-    }
-    .about-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-    .about-card h3 {
-      font-size: 0.85rem;
-      color: var(--accent);
-      font-family: 'Space Mono', monospace;
-      margin-bottom: 0.75rem;
-      letter-spacing: 0.05em;
-    }
-    .about-card p, .about-card li {
-      font-size: 0.9rem;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-    .about-card ul { padding-left: 1rem; }
-    .about-card li { margin-bottom: 0.3rem; }
-
-    /* GOALS */
-    .goals-list { display: flex; flex-direction: column; gap: 1rem; }
-    .goal-item {
-      display: flex; gap: 1.25rem; align-items: flex-start;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem 1.5rem;
-    }
-    .goal-num {
-      font-family: 'Space Mono', monospace;
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: var(--border);
-      line-height: 1;
-      flex-shrink: 0;
-      padding-top: 2px;
-    }
-    .goal-text { font-size: 0.95rem; color: var(--muted); }
-
-    /* TIMELINE */
-    .timeline { position: relative; padding-left: 1.5rem; }
-    .timeline::before {
-      content: '';
-      position: absolute; left: 0; top: 0; bottom: 0;
-      width: 1px; background: var(--border);
-    }
-    .timeline-item {
-      position: relative;
-      padding: 0 0 2rem 1.5rem;
-    }
-    .timeline-item::before {
-      content: '';
-      position: absolute; left: -4.5px; top: 6px;
-      width: 9px; height: 9px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px var(--accent);
-    }
-    .timeline-week {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.25rem;
-    }
-    .timeline-action { font-size: 0.95rem; color: var(--text); font-weight: 500; }
-    .timeline-deliverable { font-size: 0.85rem; color: var(--muted); margin-top: 0.2rem; }
-
-    /* INTERVIEWS */
-    .interview-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;
-    }
-    .interview-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-    .interview-card h3 {
-      font-size: 1rem; font-weight: 600; margin-bottom: 0.25rem;
-    }
-    .interview-card .role {
-      font-size: 0.8rem; color: var(--accent);
-      font-family: 'Space Mono', monospace;
-      margin-bottom: 1rem;
-    }
-    .interview-card ol {
-      padding-left: 1.1rem;
-      display: flex; flex-direction: column; gap: 0.5rem;
-    }
-    .interview-card li { font-size: 0.85rem; color: var(--muted); }
-
-    /* JOURNAL */
-    .journal-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-    }
-    .journal-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.25rem;
-      min-height: 140px;
-      position: relative;
-    }
-    .journal-card .week-tag {
-      font-family: 'Space Mono', monospace;
-      font-size: 0.7rem;
-      color: var(--accent);
-      letter-spacing: 0.1em;
-      margin-bottom: 0.5rem;
-    }
-    .journal-card .entry-placeholder {
-      font-size: 0.85rem;
-      color: var(--border);
-      font-style: italic;
-    }
-
-    /* DISASSEMBLY */
-    .photo-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-    }
-    .photo-slot {
-      aspect-ratio: 4/3;
-      background: var(--surface);
-      border: 1px dashed var(--border);
-      border-radius: 12px;
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.5rem;
-      color: var(--border);
-      font-size: 0.8rem;
-      font-family: 'Space Mono', monospace;
-    }
-    .photo-slot svg { opacity: 0.3; }
-
-    /* ATTRIBUTES */
-    .attr-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem;
-    }
-    .attr-card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 1.5rem;
-    }
-    .attr-card h3 { font-size: 0.9rem; font-weight: 600; margin-bottom: 0.5rem; }
-    .attr-bar-bg {
-      height: 4px; background: var(--border); border-radius: 2px; margin: 0.75rem 0;
-    }
-    .attr-bar {
-      height: 4px; border-radius: 2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent2));
-    }
-    .attr-card p { font-size: 0.82rem; color: var(--muted); }
-
-    /* FOOTER */
-    footer {
-      border-top: 1px solid var(--border);
-      padding: 2rem;
-      text-align: center;
-      font-family: 'Space Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--muted);
-    }
-
-    @media (max-width: 640px) {
-      .about-grid, .interview-grid, .journal-grid, .photo-grid, .attr-grid {
-        grid-template-columns: 1fr;
-      }
-      .hero-meta { gap: 1rem; }
-    }
-  </style>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<nav>
-  <span class="nav-logo">JAVIER / GL PROJECT</span>
-  <ul class="nav-links">
-    <li><a href="#about">About</a></li>
-    <li><a href="#goals">Goals</a></li>
-    <li><a href="#timeline">Timeline</a></li>
-    <li><a href="#interviews">Interviews</a></li>
-    <li><a href="#journal">Journal</a></li>
-    <li><a href="#disassembly">Disassembly</a></li>
-  </ul>
-</nav>
+    <!-- Animated Background -->
 
-<!-- HERO -->
-<div style="max-width:900px;margin:0 auto;position:relative;">
-  <div class="hero">
-    <div class="hero-tag">Guided Learning Project · Temasek Polytechnic</div>
-    <h1>Foundations of<br><span>Computer Architecture</span></h1>
-    <p class="hero-sub">
-      Exploring how computers work internally — from CPUs and memory to hands-on disassembly and building a simple system from scratch.
-    </p>
-    <div class="hero-meta">
-      <div class="meta-item"><strong>Tay Jie Wen Javier</strong>Student</div>
-      <div class="meta-item"><strong>2500998F</strong>Admin No.</div>
-      <div class="meta-item"><strong>Jai R Rangasamy</strong>Facilitator</div>
-      <div class="meta-item"><strong>Year 2 · Comp Eng</strong>Programme</div>
-    </div>
-  </div>
-</div>
+    <div class="bg-grid"></div>
+    <div class="bg-gradient"></div>
+    <div id="particles"></div>
 
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-label">01 · About</div>
-  <h2>What I'm Doing</h2>
-  <p style="color:var(--muted);max-width:620px;">
-    In this project I'm exploring the fundamentals of computer architecture to gain a deeper understanding of how computers function internally — including key components like the CPU, memory, and motherboard, and how they interact to process data.
-  </p>
-  <div class="about-grid" style="margin-top:1.5rem;">
-    <div class="about-card">
-      <h3>What I Already Know</h3>
-      <p>Surface-level understanding of components like RAM, CPU, and motherboard, mainly from coursework and general knowledge.</p>
-    </div>
-    <div class="about-card">
-      <h3>New Knowledge Needed</h3>
-      <ul>
-        <li>In-depth computer architecture (CPU, memory, motherboard)</li>
-        <li>Basic circuitry and component connections</li>
-        <li>How to handle hardware safely</li>
-        <li>Troubleshooting and component identification</li>
-      </ul>
-    </div>
-    <div class="about-card">
-      <h3>Who Will Benefit</h3>
-      <ul>
-        <li>Myself — deeper technical knowledge</li>
-        <li>My peers — documentation they can reference</li>
-        <li>Interview participants — knowledge exchange</li>
-      </ul>
-    </div>
-    <div class="about-card">
-      <h3>Possible Challenges</h3>
-      <ul>
-        <li>Bridging basic knowledge to deeper technical understanding</li>
-        <li>Disassembling and identifying complex components</li>
-        <li>Time management and sourcing resources</li>
-      </ul>
-    </div>
-  </div>
-</section>
+    <!-- Scroll Progress -->
 
-<!-- GOALS -->
-<section id="goals">
-  <div class="section-label">02 · Learning Goals</div>
-  <h2>What I Want to Achieve</h2>
-  <div class="goals-list">
-    <div class="goal-item">
-      <div class="goal-num">01</div>
-      <p class="goal-text">Deepen my understanding of computer architecture so I can better understand how the devices I use daily function and make more informed decisions when I face problems with them.</p>
-    </div>
-    <div class="goal-item">
-      <div class="goal-num">02</div>
-      <p class="goal-text">Disassemble an old computer to identify and analyse its internal components, gaining hands-on experience that strengthens my critical-thinking and problem-solving skills.</p>
-    </div>
-    <div class="goal-item">
-      <div class="goal-num">03</div>
-      <p class="goal-text">Simulate or build a simple computer system to apply my knowledge practically, developing creativity and confidence when working with technology.</p>
-    </div>
-  </div>
+    <div id="progress-bar"></div>
 
-  <!-- ATTRIBUTES -->
-  <div style="margin-top:2.5rem;">
-    <h3 style="font-size:1rem;margin-bottom:1rem;color:var(--muted);font-weight:500;">TP Student Profile Attributes</h3>
-    <div class="attr-grid">
-      <div class="attr-card">
-        <h3>Inquisitive</h3>
-        <div class="attr-bar-bg"><div class="attr-bar" style="width:60%"></div></div>
-        <p>Pushing beyond the curriculum by researching how components interact at a deeper level and asking more in-depth questions during interviews.</p>
-      </div>
-      <div class="attr-card">
-        <h3>Digitally Fluent</h3>
-        <div class="attr-bar-bg"><div class="attr-bar" style="width:60%"></div></div>
-        <p>Improving ability to understand and use technology by working hands-on with hardware and building or simulating a simple computer system.</p>
-      </div>
-      <div class="attr-card">
-        <h3>Growth-Oriented</h3>
-        <div class="attr-bar-bg"><div class="attr-bar" style="width:60%"></div></div>
-        <p>Taking ownership of learning by setting goals, reflecting via journal entries, and identifying weak points to refine my study schedule.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    <!-- Navigation -->
 
-<!-- TIMELINE -->
-<section id="timeline">
-  <div class="section-label">03 · Action Plan</div>
-  <h2>Semester Timeline</h2>
-  <div class="timeline">
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 1</div>
-      <div class="timeline-action">Contact facilitator and discuss action plan</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 4 · FLEX</div>
-      <div class="timeline-action">Catch up on work, start watching computer-building video</div>
-      <div class="timeline-deliverable">Catch up + reflection</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 5</div>
-      <div class="timeline-action">Research computer architecture components, draft interview questions</div>
-      <div class="timeline-deliverable">Notes + interview questions draft</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 6</div>
-      <div class="timeline-action">Conduct interviews with Dad and peer</div>
-      <div class="timeline-deliverable">Interview recordings + transcripts</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 7</div>
-      <div class="timeline-action">Analyse interview responses, follow up on unclear points</div>
-      <div class="timeline-deliverable">Summary of key points</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 10–11 · TERM BREAK</div>
-      <div class="timeline-action">Watch more videos, secure device to disassemble, begin disassembly</div>
-      <div class="timeline-deliverable">Notes + documentation</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 13</div>
-      <div class="timeline-action">Attempt to build simple simulation</div>
-      <div class="timeline-deliverable">Documentation / prototype</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 14–16</div>
-      <div class="timeline-action">Build and refine e-portfolio website, add journals</div>
-      <div class="timeline-deliverable">Draft → updated → near-completed portfolio</div>
-    </div>
-    <div class="timeline-item">
-      <div class="timeline-week">WEEK 17</div>
-      <div class="timeline-action">Final submission preparation</div>
-      <div class="timeline-deliverable">Completed portfolio</div>
-    </div>
-  </div>
-</section>
+    <header>
 
-<!-- INTERVIEWS -->
-<section id="interviews">
-  <div class="section-label">04 · Interviews</div>
-  <h2>Interview Questions</h2>
-  <div class="interview-grid">
-    <div class="interview-card">
-      <h3>Dad</h3>
-      <div class="role">Software · Firewalls · Network Security</div>
-      <ol>
-        <li>When you first started working with computers, what did you find most confusing about how everything connected — hardware, software, and networking?</li>
-        <li>From a security standpoint, how much does the physical hardware layer actually matter — does the type of network card or router affect firewall performance?</li>
-        <li>Can you walk me through how you troubleshoot a system issue, like a firewall behaving unexpectedly?</li>
-        <li>Are there hardware limitations or vulnerabilities that people on the software side tend to overlook?</li>
-        <li>How has the relationship between hardware and software changed over the years?</li>
-        <li>What advice would you give a computer engineering student trying to connect hardware knowledge to the real-world software side?</li>
-      </ol>
-    </div>
-    <div class="interview-card">
-      <h3>Lecturer's Friend</h3>
-      <div class="role">Hardware Specialist</div>
-      <ol>
-        <li>How did you first get into the hardware side of computers, and what drew you to it over software?</li>
-        <li>If you were building a computer from scratch today, where would you start and what would your process look like?</li>
-        <li>What do you think is the most underappreciated component in a computer, and why?</li>
-        <li>How would you describe the relationship between the CPU, RAM, and motherboard to someone just starting out?</li>
-        <li>Are there common misconceptions about hardware that people coming from a software background tend to have?</li>
-        <li>How much do you think hardware knowledge matters for someone going into software or computer engineering today?</li>
-        <li>What resources have helped you most in deepening your hardware knowledge?</li>
-      </ol>
-    </div>
-  </div>
-  <p style="color:var(--muted);font-size:0.85rem;margin-top:1.5rem;">
-    📝 Transcripts and recordings will be added here after interviews are conducted.
-  </p>
-</section>
+        <nav class="nav">
 
-<!-- JOURNAL -->
-<section id="journal">
-  <div class="section-label">05 · Weekly Journal</div>
-  <h2>Reflections</h2>
-  <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.9rem;">Updated weekly — what went well, challenges faced, and how I improved.</p>
-  <div class="journal-grid">
-    <div class="journal-card">
-      <div class="week-tag">WEEK 1</div>
-      <p class="entry-placeholder">Entry coming soon...</p>
-    </div>
-    <div class="journal-card">
-      <div class="week-tag">WEEK 2</div>
-      <p class="entry-placeholder">Entry coming soon...</p>
-    </div>
-    <div class="journal-card">
-      <div class="week-tag">WEEK 3</div>
-      <p class="entry-placeholder">Entry coming soon...</p>
-    </div>
-    <div class="journal-card">
-      <div class="week-tag">WEEK 4</div>
-      <p class="entry-placeholder">Entry coming soon...</p>
-    </div>
-    <div class="journal-card">
-      <div class="week-tag">WEEK 5</div>
-      <p class="entry-placeholder">Entry coming soon...</p>
-    </div>
-    <div class="journal-card">
-      <div class="week-tag">WEEK 6</div>
-      <p class="entry-placeholder">Entry coming soon...</p>
-    </div>
-  </div>
-</section>
+            <a href="#" class="logo">
 
-<!-- DISASSEMBLY -->
-<section id="disassembly">
-  <div class="section-label">06 · Disassembly Documentation</div>
-  <h2>Inside the Machine</h2>
-  <p style="color:var(--muted);margin-bottom:1.5rem;font-size:0.9rem;">Photos and component notes from the hands-on disassembly. To be updated during Term Break (Weeks 10–11).</p>
-  <div class="photo-grid">
-    <div class="photo-slot">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-      Add photo
-    </div>
-    <div class="photo-slot">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-      Add photo
-    </div>
-    <div class="photo-slot">
-      <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><path d="m21 15-5-5L5 21"/></svg>
-      Add photo
-    </div>
-  </div>
-</section>
+                <span class="logo-dot"></span>
 
-<footer>
-  <p>Tay Jie Wen Javier · 2500998F · Foundations of Computer Architecture · Temasek Polytechnic</p>
-</footer>
+                JAVIER
+
+            </a>
+
+            <ul class="nav-links">
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#goals">Goals</a></li>
+
+                <li><a href="#timeline">Timeline</a></li>
+
+                <li><a href="#interviews">Interviews</a></li>
+
+                <li><a href="#journal">Journal</a></li>
+
+                <li><a href="#disassembly">Disassembly</a></li>
+
+            </ul>
+
+            <button id="menu-btn">
+
+                ☰
+
+            </button>
+
+        </nav>
+
+    </header>
+
+    <!-- Hero -->
+
+    <main>
+
+        <section class="hero">
+
+            <div class="hero-content">
+
+                <p class="eyebrow">
+
+                    GUIDED LEARNING PROJECT
+
+                </p>
+
+                <h1>
+
+                    Foundations of
+
+                    <span id="typing"></span>
+
+                </h1>
+
+                <p class="hero-text">
+
+                    Exploring the internal architecture of computers through
+                    research, interviews, hardware disassembly and practical
+                    experimentation.
+
+                </p>
+
+                <div class="hero-buttons">
+
+                    <a href="#about" class="btn primary">
+
+                        Explore Project
+
+                    </a>
+
+                    <a href="#timeline" class="btn secondary">
+
+                        View Timeline
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <aside class="hero-card">
+
+                <div class="terminal">
+
+                    <div class="terminal-top">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+                    <div class="terminal-body">
+
+<pre>
+> loading portfolio...
+
+Status:
+████████████ 100%
+
+Student:
+Tay Jie Wen Javier
+
+Course:
+Computer Engineering
+
+Project:
+Computer Architecture
+
+State:
+READY
+</pre>
+
+                    </div>
+
+                </div>
+
+            </aside>
+
+            <div class="hero-scroll">
+
+                <span></span>
+
+                Scroll
+
+            </div>
+
+        </section>
+
+        <!-- Statistics -->
+
+        <section class="stats">
+
+            <article>
+
+                <h2 class="counter" data-target="17">0</h2>
+
+                <p>Weeks Planned</p>
+
+            </article>
+
+            <article>
+
+                <h2 class="counter" data-target="2">0</h2>
+
+                <p>Industry Interviews</p>
+
+            </article>
+
+            <article>
+
+                <h2 class="counter" data-target="6">0</h2>
+
+                <p>Learning Objectives</p>
+
+            </article>
+
+            <article>
+
+                <h2 class="counter" data-target="1">0</h2>
+
+                <p>Final Portfolio</p>
+
+            </article>
+
+        </section>
+
+        <!-- ========================= -->
+
+        <!-- ABOUT -->
+
+        <!-- ========================= -->
+
+        <section id="about" class="section">
+
+            <div class="section-heading">
+
+                <p>01</p>
+
+                <h2>About The Project</h2>
+
+            </div>
+
+            <div class="section-intro">
+
+                This project explores how modern computers work internally,
+                from the CPU and memory hierarchy to motherboards,
+                storage devices and hardware communication.
+                Through interviews, research and practical disassembly,
+                I aim to bridge theoretical knowledge with real-world
+                experience.
+
+            </div>
+
+            <div class="grid two">
+
+                <article class="card">
+
+                    <h3>Current Knowledge</h3>
+
+                    <p>
+
+                        Basic understanding of processors,
+                        RAM,
+                        storage,
+                        motherboards and computer assembly
+                        gained through coursework and personal interest.
+
+                    </p>
+
+                </article>
+
+                <article class="card">
+
+                    <h3>Knowledge To Develop</h3>
+
+                    <ul>
+
+                        <li>CPU architecture</li>
+
+                        <li>Memory hierarchy</li>
+
+                        <li>Hardware troubleshooting</li>
+
+                        <li>Motherboard design</li>
+
+                        <li>Hardware safety</li>
+
+                        <li>System integration</li>
+
+                    </ul>
+
+                </article>
+
+                <article class="card">
+
+                    <h3>Who Benefits</h3>
+
+                    <ul>
+
+                        <li>Myself</li>
+
+                        <li>Future classmates</li>
+
+                        <li>Interview participants</li>
+
+                        <li>Future employers</li>
+
+                    </ul>
+
+                </article>
+
+                <article class="card">
+
+                    <h3>Challenges</h3>
+
+                    <ul>
+
+                        <li>Time management</li>
+
+                        <li>Hardware sourcing</li>
+
+                        <li>Understanding complex concepts</li>
+
+                        <li>Documenting every stage</li>
+
+                    </ul>
+
+                </article>
+
+            </div>
+
+        </section>
+        <!-- ========================= -->
+        <!-- GOALS -->
+        <!-- ========================= -->
+
+        <section id="goals" class="section">
+
+            <div class="section-heading">
+
+                <p>02</p>
+
+                <h2>Learning Goals</h2>
+
+            </div>
+
+            <div class="goal-list">
+
+                <article class="goal">
+
+                    <span>01</span>
+
+                    <div>
+
+                        <h3>Understand Computer Architecture</h3>
+
+                        <p>
+
+                            Develop a deeper understanding of how CPUs,
+                            memory, buses and storage devices communicate
+                            to execute instructions efficiently.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="goal">
+
+                    <span>02</span>
+
+                    <div>
+
+                        <h3>Hands-on Hardware Experience</h3>
+
+                        <p>
+
+                            Safely disassemble a computer, identify every
+                            component and understand how each contributes
+                            to the overall system.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="goal">
+
+                    <span>03</span>
+
+                    <div>
+
+                        <h3>Apply Knowledge</h3>
+
+                        <p>
+
+                            Build or simulate a simple computer system
+                            while documenting my learning process,
+                            reflections and improvements.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <div class="attribute-wrapper">
+
+                <h3 class="subheading">
+
+                    TP Student Profile
+
+                </h3>
+
+                <div class="grid three">
+
+                    <article class="card attribute">
+
+                        <div class="attribute-top">
+
+                            <h4>Inquisitive</h4>
+
+                            <span>90%</span>
+
+                        </div>
+
+                        <div class="bar">
+
+                            <div class="fill" data-width="90"></div>
+
+                        </div>
+
+                        <p>
+
+                            Going beyond lectures by researching hardware
+                            architecture independently and validating
+                            concepts through interviews and practical work.
+
+                        </p>
+
+                    </article>
+
+                    <article class="card attribute">
+
+                        <div class="attribute-top">
+
+                            <h4>Digitally Fluent</h4>
+
+                            <span>88%</span>
+
+                        </div>
+
+                        <div class="bar">
+
+                            <div class="fill" data-width="88"></div>
+
+                        </div>
+
+                        <p>
+
+                            Improving practical hardware skills,
+                            understanding specifications and confidently
+                            working with computer components.
+
+                        </p>
+
+                    </article>
+
+                    <article class="card attribute">
+
+                        <div class="attribute-top">
+
+                            <h4>Growth Mindset</h4>
+
+                            <span>92%</span>
+
+                        </div>
+
+                        <div class="bar">
+
+                            <div class="fill" data-width="92"></div>
+
+                        </div>
+
+                        <p>
+
+                            Reflecting weekly, learning from mistakes and
+                            continuously refining my understanding
+                            throughout the project.
+
+                        </p>
+
+                    </article>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- TIMELINE -->
+        <!-- ========================= -->
+
+        <section id="timeline" class="section">
+
+            <div class="section-heading">
+
+                <p>03</p>
+
+                <h2>Project Timeline</h2>
+
+            </div>
+
+            <div class="timeline">
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 1</span>
+
+                        <h3>Project Planning</h3>
+
+                        <p>
+
+                            Meet facilitator, discuss objectives,
+                            refine action plan and establish milestones.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 4</span>
+
+                        <h3>Background Research</h3>
+
+                        <p>
+
+                            Watch PC building videos and study the
+                            fundamentals of computer architecture.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 5</span>
+
+                        <h3>Component Research</h3>
+
+                        <p>
+
+                            Investigate CPUs, RAM, storage, buses,
+                            motherboards and prepare interview questions.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 6</span>
+
+                        <h3>Industry Interviews</h3>
+
+                        <p>
+
+                            Conduct interviews with my father and a
+                            hardware specialist to gain practical
+                            industry insights.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 10–11</span>
+
+                        <h3>Hardware Disassembly</h3>
+
+                        <p>
+
+                            Obtain an old computer, safely disassemble
+                            it and document every internal component.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 13</span>
+
+                        <h3>System Simulation</h3>
+
+                        <p>
+
+                            Build or simulate a simple computer system
+                            to reinforce concepts learnt during research.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 14–16</span>
+
+                        <h3>Portfolio Development</h3>
+
+                        <p>
+
+                            Build this interactive website,
+                            write weekly reflections and organise
+                            supporting evidence.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+                <article class="timeline-item">
+
+                    <div class="dot"></div>
+
+                    <div class="content">
+
+                        <span>Week 17</span>
+
+                        <h3>Final Submission</h3>
+
+                        <p>
+
+                            Review the portfolio,
+                            polish the design,
+                            check documentation and submit.
+
+                        </p>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+        </section>
+        <!-- ========================= -->
+        <!-- INTERVIEWS -->
+        <!-- ========================= -->
+
+        <section id="interviews" class="section">
+
+            <div class="section-heading">
+
+                <p>04</p>
+
+                <h2>Industry Interviews</h2>
+
+            </div>
+
+            <p class="section-intro">
+
+                To gain practical insights beyond textbooks,
+                I interviewed professionals with different
+                backgrounds in computing and hardware.
+
+            </p>
+
+            <div class="grid two">
+
+                <article class="card">
+
+                    <div class="card-top">
+
+                        <h3>Dad</h3>
+
+                        <span>Network Security</span>
+
+                    </div>
+
+                    <ol>
+
+                        <li>How did you first get into IT?</li>
+
+                        <li>How important is hardware knowledge when working with firewalls?</li>
+
+                        <li>What hardware failures have you encountered most?</li>
+
+                        <li>How do you usually troubleshoot systems?</li>
+
+                        <li>How has computer hardware changed over time?</li>
+
+                        <li>What advice would you give future engineers?</li>
+
+                    </ol>
+
+                </article>
+
+                <article class="card">
+
+                    <div class="card-top">
+
+                        <h3>Hardware Specialist</h3>
+
+                        <span>Computer Hardware</span>
+
+                    </div>
+
+                    <ol>
+
+                        <li>How did you become interested in hardware?</li>
+
+                        <li>How would you build a PC from scratch?</li>
+
+                        <li>What is the most overlooked component?</li>
+
+                        <li>How would you explain CPU, RAM and motherboard?</li>
+
+                        <li>What misconceptions do students usually have?</li>
+
+                        <li>Which resources helped you learn hardware?</li>
+
+                    </ol>
+
+                </article>
+
+            </div>
+
+            <div class="note">
+
+                Interview recordings,
+                transcripts,
+                photographs
+                and summaries will be uploaded after completion.
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- JOURNAL -->
+        <!-- ========================= -->
+
+        <section id="journal" class="section">
+
+            <div class="section-heading">
+
+                <p>05</p>
+
+                <h2>Weekly Learning Journal</h2>
+
+            </div>
+
+            <p class="section-intro">
+
+                Every week I will document my progress,
+                challenges,
+                reflections
+                and improvements.
+
+            </p>
+
+            <div class="grid three">
+
+                <article class="journal-card">
+
+                    <span>Week 1</span>
+
+                    <h3>Project Planning</h3>
+
+                    <p>
+
+                        Meeting facilitator,
+                        discussing expectations
+                        and planning milestones.
+
+                    </p>
+
+                </article>
+
+                <article class="journal-card">
+
+                    <span>Week 2</span>
+
+                    <h3>Research</h3>
+
+                    <p>
+
+                        Learning about computer architecture,
+                        CPU design,
+                        memory
+                        and buses.
+
+                    </p>
+
+                </article>
+
+                <article class="journal-card">
+
+                    <span>Week 3</span>
+
+                    <h3>Reflection</h3>
+
+                    <p>
+
+                        Placeholder for weekly reflection.
+
+                    </p>
+
+                </article>
+
+                <article class="journal-card">
+
+                    <span>Week 4</span>
+
+                    <h3>Reflection</h3>
+
+                    <p>
+
+                        Placeholder for weekly reflection.
+
+                    </p>
+
+                </article>
+
+                <article class="journal-card">
+
+                    <span>Week 5</span>
+
+                    <h3>Reflection</h3>
+
+                    <p>
+
+                        Placeholder for weekly reflection.
+
+                    </p>
+
+                </article>
+
+                <article class="journal-card">
+
+                    <span>Week 6</span>
+
+                    <h3>Reflection</h3>
+
+                    <p>
+
+                        Placeholder for weekly reflection.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- ========================= -->
+        <!-- DISASSEMBLY -->
+        <!-- ========================= -->
+
+        <section id="disassembly" class="section">
+
+            <div class="section-heading">
+
+                <p>06</p>
+
+                <h2>Computer Disassembly</h2>
+
+            </div>
+
+            <p class="section-intro">
+
+                During Term Break,
+                I will disassemble an old computer,
+                identify every component,
+                document its purpose
+                and explain how it contributes to the overall system.
+
+            </p>
+
+            <div class="gallery">
+
+                <figure class="photo">
+
+                    <img src="images/photo1.jpg" alt="Computer Component">
+
+                    <figcaption>
+
+                        Motherboard Overview
+
+                    </figcaption>
+
+                </figure>
+
+                <figure class="photo">
+
+                    <img src="images/photo2.jpg" alt="Computer Component">
+
+                    <figcaption>
+
+                        CPU Removal
+
+                    </figcaption>
+
+                </figure>
+
+                <figure class="photo">
+
+                    <img src="images/photo3.jpg" alt="Computer Component">
+
+                    <figcaption>
+
+                        RAM Modules
+
+                    </figcaption>
+
+                </figure>
+
+                <figure class="photo">
+
+                    <img src="images/photo4.jpg" alt="Computer Component">
+
+                    <figcaption>
+
+                        Storage Devices
+
+                    </figcaption>
+
+                </figure>
+
+                <figure class="photo">
+
+                    <img src="images/photo5.jpg" alt="Computer Component">
+
+                    <figcaption>
+
+                        Expansion Cards
+
+                    </figcaption>
+
+                </figure>
+
+                <figure class="photo">
+
+                    <img src="images/photo6.jpg" alt="Computer Component">
+
+                    <figcaption>
+
+                        Completed Disassembly
+
+                    </figcaption>
+
+                </figure>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- Lightbox -->
+
+    <div id="lightbox">
+
+        <span id="close">&times;</span>
+
+        <img id="lightbox-img" src="" alt="">
+
+        <p id="caption"></p>
+
+    </div>
+
+    <!-- Footer -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+
+                Thanks for Visiting
+
+            </h2>
+
+            <p>
+
+                Foundations of Computer Architecture
+
+                Guided Learning Project
+
+            </p>
+
+            <div class="footer-info">
+
+                <span>
+
+                    Tay Jie Wen Javier
+
+                </span>
+
+                <span>
+
+                    2500998F
+
+                </span>
+
+                <span>
+
+                    Computer Engineering
+
+                </span>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+    <script src="script.js"></script>
 
 </body>
+
 </html>
