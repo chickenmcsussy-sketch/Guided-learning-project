@@ -674,99 +674,169 @@ READY
             </div>
 
         </section>
-        <!-- ========================= -->
-        <!-- INTERVIEWS -->
-        <!-- ========================= -->
+       <!-- ========================= -->
+<!-- INTERVIEWS -->
+<!-- ========================= -->
 
-        <section id="interviews" class="section">
+<section id="interviews" class="section">
 
-            <div class="section-heading">
+    <div class="section-heading">
+        <p>04</p>
+        <h2>Industry Interviews</h2>
+    </div>
 
-                <p>04</p>
+    <p class="section-intro">
+        To gain practical insights beyond textbooks,
+        I interviewed two professionals with different
+        backgrounds in computing and technology.
+    </p>
 
-                <h2>Industry Interviews</h2>
+    <!-- Tab Switcher -->
+    <div class="interview-tabs">
+        <button class="tab-btn active" data-tab="kannan">Mr Kannan — Hardware</button>
+        <button class="tab-btn" data-tab="dad">Dad — Network Security</button>
+    </div>
 
+    <!-- Mr Kannan -->
+    <div class="interview-panel active" id="tab-kannan">
+
+        <div class="interviewee-card">
+            <div class="interviewee-info">
+                <h3>Kannan G Haribol</h3>
+                <span>Software Solutions · Hardware Specialist</span>
+                <p>Computer Engineering graduate who worked at Intel for 6–7 years and ran his own company managing servers, ERP systems and dedicated networks. Strong advocate for hardware fundamentals.</p>
+            </div>
+            <blockquote>
+                "Be strong and clear in the fundamentals — if your fundamentals are strong, you can work in many things."
+            </blockquote>
+        </div>
+
+        <div class="qa-list">
+
+            <div class="qa-item">
+                <p class="q">Could you briefly share your professional background?</p>
+                <p class="a">Mr Kannan studied Computer Engineering and initially went into software programming before moving more toward the hardware side. He worked at Intel for around 6–7 years and also spent time in the semiconductor business. He later started his own company handling ERP systems, server management, dedicated servers and VPN setups.</p>
             </div>
 
-            <p class="section-intro">
-
-                To gain practical insights beyond textbooks,
-                I interviewed professionals with different
-                backgrounds in computing and hardware.
-
-            </p>
-
-            <div class="grid two">
-
-                <article class="card">
-
-                    <div class="card-top">
-
-                        <h3>Dad</h3>
-
-                        <span>Network Security</span>
-
-                    </div>
-
-                    <ol>
-
-                        <li>How did you first get into IT?</li>
-
-                        <li>How important is hardware knowledge when working with firewalls?</li>
-
-                        <li>What hardware failures have you encountered most?</li>
-
-                        <li>How do you usually troubleshoot systems?</li>
-
-                        <li>How has computer hardware changed over time?</li>
-
-                        <li>What advice would you give future engineers?</li>
-
-                    </ol>
-
-                </article>
-
-                <article class="card">
-
-                    <div class="card-top">
-
-                        <h3>Hardware Specialist</h3>
-
-                        <span>Computer Hardware</span>
-
-                    </div>
-
-                    <ol>
-
-                        <li>How did you become interested in hardware?</li>
-
-                        <li>How would you build a PC from scratch?</li>
-
-                        <li>What is the most overlooked component?</li>
-
-                        <li>How would you explain CPU, RAM and motherboard?</li>
-
-                        <li>What misconceptions do students usually have?</li>
-
-                        <li>Which resources helped you learn hardware?</li>
-
-                    </ol>
-
-                </article>
-
+            <div class="qa-item">
+                <p class="q">What first sparked your interest in computers and technology?</p>
+                <p class="a">During secondary school, he was deciding between medicine and IT. He chose IT because he saw how technology was emerging and how engineering was behind everything — clothes, kitchens, houses. He was amazed by engineering concepts and felt the industry was booming. Today, he notes that hardware and everyday life are almost inseparable.</p>
             </div>
 
-            <div class="note">
-
-                Interview recordings,
-                transcripts,
-                photographs
-                and summaries will be uploaded after completion.
-
+            <div class="qa-item">
+                <p class="q">How has your understanding of computer hardware evolved throughout your career?</p>
+                <p class="a">Between the 1980s and 2010, hardware upgrades were slow — moving from old processors took a year or two. Now the pace has accelerated dramatically due to the number of researchers and the influence of AI. Quantum computing is also progressing rapidly. He noted that most people today focus on the programming side, but he was impressed that I was exploring architecture — how data is stored and processed — which many people overlook.</p>
             </div>
 
-        </section>
+            <div class="qa-item">
+                <p class="q">How do the CPU, RAM, storage and motherboard work together when a program runs?</p>
+                <p class="a">He used the human body as an analogy: the CPU is the brain, the monitor is the eyes, and the motherboard is the nervous system connecting everything. RAM is like your working memory — the smarter you are, the more you can hold at once. When you open an app, it loads from storage into RAM so the CPU can process it efficiently, then sends the output to the GPU for display.</p>
+            </div>
 
+            <div class="qa-item">
+                <p class="q">What are the most important concepts students should understand to go deeper?</p>
+                <p class="a">Always be strong in the fundamentals first. He used a cooking analogy — if you know the basic recipe well, you can mix and match to create something unique. Fundamentals let you branch into both hardware and software. For example, when you press a key, the value is stored in ROM, sent to the GPU, and displayed as pixels — the computer doesn't know what the letter is, it just turns pixels on or off.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">How does memory management affect performance?</p>
+                <p class="a">RAM used to be measured in megabytes; now it's gigabytes because of how much more we demand from computers. When you launch an app, the program loads from storage into RAM so the CPU can process it quickly. RAM acts as a temporary workspace — data is loaded in, processed, then the result is sent to the GPU. Without sufficient RAM, the system slows down significantly.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">What hardware considerations matter most when building or upgrading a computer?</p>
+                <p class="a">Always define your purpose first — gaming, programming, general use. Then check if your processor has enough computational capacity, followed by memory speed and size. For gaming specifically, the GPU becomes the priority. He recommended going through components one by one once the purpose is clearly defined.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">How do you troubleshoot a computer that fails to boot?</p>
+                <p class="a">He outlined a standard procedure: check the power supply first, then the motherboard indicators, then verify all signals are active. Listen for beep codes — different patterns indicate different faults. Try reseating the RAM as loose contact is a common cause. Disconnect external devices one by one, then check the BIOS, and finally inspect storage.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">Have you encountered any particularly challenging hardware issues?</p>
+                <p class="a">Yes — a Cisco collaboration device (a networked phone system) was causing a server to shut down every time it connected. The sudden signal it sent triggered the BIOS to shut the server down. Cisco had to be called in to resolve it. He also noted that hardware failures used to be more common — data recovery shops were everywhere when HDDs were standard. Now with SSDs and cloud backups, catastrophic hardware failure is less frequent.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">How does hardware contribute to overall system security?</p>
+                <p class="a">Both hardware and software security are equally important. Software handles antivirus and monitoring agents, but hardware security is growing — fingerprint sensors and hardware encryption are examples. As smart cities develop, every device from phones to fridges becomes a node in a network, making hardware trust critical. He also raised the concern of hardware manufactured with hidden backdoors that could silently send data to external servers.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">What emerging hardware technologies will have the greatest impact?</p>
+                <p class="a">In the next 3–5 years, AI will peak and GPUs and RAM (particularly from NVIDIA) will be central. After that, quantum computing will reshape the hardware landscape entirely. Beyond that, photonic computing — transferring signals through light instead of copper — will eliminate resistance-related bottlenecks and dramatically increase speed.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">What advice would you give students learning computer architecture?</p>
+                <p class="a">Always master the fundamentals first — know how a computer works at its core, as this builds genuine curiosity and makes you love what you do. He recommended building a Raspberry Pi project, like controlling a ceiling fan or setting up a home network, to develop real interest. He also suggested buying second-hand parts and assembling a PC yourself, or visiting Sim Lim Square to source components affordably.</p>
+            </div>
+
+            <div class="qa-item">
+                <p class="q">What do you wish you had learned earlier in your career?</p>
+                <p class="a">Cloud computing. His company missed the early wave of cloud adoption and had to catch up later. He wished they had recognised it sooner as it completely changed the industry landscape.</p>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Dad -->
+    <div class="interview-panel" id="tab-dad">
+
+        <div class="interviewee-card">
+            <div class="interviewee-info">
+                <h3>Dad</h3>
+                <span>Network Security · Firewalls · Software</span>
+                <p>Works in software and network security, specialising in firewall configuration and network infrastructure. Brings a real-world software and security perspective to complement the hardware focus of the project.</p>
+            </div>
+            <blockquote>
+                "Interview coming soon."
+            </blockquote>
+        </div>
+
+        <div class="qa-list">
+            <div class="qa-item">
+                <p class="q">When you first started working in software and network security, what did you find most confusing or surprising?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+            <div class="qa-item">
+                <p class="q">Can you walk me through how a firewall works at the software level?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+            <div class="qa-item">
+                <p class="q">What are the most common network security mistakes companies or individuals make?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+            <div class="qa-item">
+                <p class="q">How do you approach troubleshooting a network security issue step by step?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+            <div class="qa-item">
+                <p class="q">How has cybersecurity changed over the years — are today's threats fundamentally different?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+            <div class="qa-item">
+                <p class="q">How important is it to understand software deeply versus just configuring tools like firewalls and VPNs?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+            <div class="qa-item">
+                <p class="q">What is the most underestimated threat in network security today?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+            <div class="qa-item">
+                <p class="q">What advice would you give someone from a computer engineering background wanting to go into network security?</p>
+                <p class="a pending">Answer coming soon.</p>
+            </div>
+        </div>
+
+        <div class="note">
+            Interview with Dad is scheduled — transcript and answers will be added after completion.
+        </div>
+
+    </div>
+
+</section>
         <!-- ========================= -->
         <!-- JOURNAL -->
         <!-- ========================= -->
