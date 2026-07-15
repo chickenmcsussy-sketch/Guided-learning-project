@@ -387,3 +387,255 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+/* ======================================================
+   PORTFOLIO V3 ADDITIONS - PART 1
+====================================================== */
+
+/* ===============================
+   BOOT SCREEN
+================================ */
+
+window.addEventListener("load", () => {
+
+    const boot = document.getElementById("boot-screen");
+
+    if (!boot) return;
+
+    const messages = [
+        "Loading Portfolio...",
+        "Initialising Hardware Database...",
+        "Loading Research Materials...",
+        "Preparing Interface...",
+        "Welcome!"
+    ];
+
+    const text = document.getElementById("boot-text");
+
+    let index = 0;
+
+    const interval = setInterval(() => {
+
+        if (text && index < messages.length) {
+
+            text.textContent = messages[index];
+
+            index++;
+
+        }
+
+    }, 650);
+
+    setTimeout(() => {
+
+        clearInterval(interval);
+
+        boot.style.opacity = "0";
+
+        setTimeout(() => {
+
+            boot.remove();
+
+        }, 900);
+
+    }, 3600);
+
+});
+
+/* ===============================
+   SMOOTH SCROLL
+================================ */
+
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+    link.addEventListener("click", e => {
+
+        const target = document.querySelector(
+            link.getAttribute("href")
+        );
+
+        if (!target) return;
+
+        e.preventDefault();
+
+        target.scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+    });
+
+});
+
+/* ===============================
+   NAVBAR SHRINK
+================================ */
+
+const header = document.querySelector("header");
+
+window.addEventListener("scroll", () => {
+
+    if (!header) return;
+
+    if (window.scrollY > 80) {
+
+        header.style.padding = "12px 60px";
+
+        header.style.background =
+            "rgba(5,10,20,.82)";
+
+    }
+
+    else {
+
+        header.style.padding = "20px 60px";
+
+        header.style.background =
+            "rgba(5,10,20,.55)";
+
+    }
+
+});
+
+/* ===============================
+   PARALLAX BACKGROUND
+================================ */
+
+const board = document.querySelector(".motherboard");
+
+window.addEventListener("mousemove", e => {
+
+    if (!board) return;
+
+    const x =
+        (e.clientX / window.innerWidth - .5) * 20;
+
+    const y =
+        (e.clientY / window.innerHeight - .5) * 20;
+
+    board.style.transform =
+        `rotateY(${x}deg)
+         rotateX(${-y}deg)`;
+
+});
+
+/* ===============================
+   HERO CARDS
+================================ */
+
+document
+.querySelectorAll(".hero-card")
+.forEach(card => {
+
+    card.addEventListener("mouseenter", () => {
+
+        card.style.transform =
+            "translateY(-12px) scale(1.04)";
+
+    });
+
+    card.addEventListener("mouseleave", () => {
+
+        card.style.transform = "";
+
+    });
+
+});
+
+/* ===============================
+   RANDOM GLOW
+================================ */
+
+setInterval(() => {
+
+    document
+    .querySelectorAll(".hero-card")
+    .forEach(card => {
+
+        card.style.boxShadow =
+            `0 0 ${20 + Math.random()*25}px
+             rgba(0,212,255,.25)`;
+
+    });
+
+},2000);
+
+/* ===============================
+   BUTTON RIPPLE
+================================ */
+
+document
+.querySelectorAll(".primary-btn,.secondary-btn")
+.forEach(btn=>{
+
+btn.addEventListener("click",function(e){
+
+const circle=document.createElement("span");
+
+const d=Math.max(
+
+this.clientWidth,
+
+this.clientHeight
+
+);
+
+circle.style.width=d+"px";
+
+circle.style.height=d+"px";
+
+circle.style.left=
+
+e.offsetX-d/2+"px";
+
+circle.style.top=
+
+e.offsetY-d/2+"px";
+
+circle.className="ripple";
+
+this.appendChild(circle);
+
+setTimeout(()=>{
+
+circle.remove();
+
+},700);
+
+});
+
+});
+
+/* ===============================
+   BACK TO TOP
+================================ */
+
+const topBtn=document.createElement("button");
+
+topBtn.innerHTML="↑";
+
+topBtn.id="topButton";
+
+document.body.appendChild(topBtn);
+
+window.addEventListener("scroll",()=>{
+
+topBtn.style.opacity=
+
+window.scrollY>500?1:0;
+
+});
+
+topBtn.onclick=()=>{
+
+window.scrollTo({
+
+top:0,
+
+behavior:"smooth"
+
+});
+
+};
