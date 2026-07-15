@@ -2,1141 +2,1778 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Foundations of Computer Architecture | Javier</title>
+<meta charset="UTF-8">
 
-    <meta name="description"
-        content="Guided Learning Project documenting my journey into Computer Architecture through research, interviews, hands-on hardware exploration and reflection.">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<title>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
-        rel="stylesheet">
+Foundations of Computer Architecture
 
-    <link rel="stylesheet" href="style.css">
+</title>
+
+<link rel="preconnect"
+href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+href="https://fonts.gstatic.com"
+crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="style.css">
+
 </head>
 
 <body>
 
-    <!-- Animated Background -->
+<!--=============================
+BOOT SCREEN
+==============================-->
 
-    <div class="bg-grid"></div>
-    <div class="bg-gradient"></div>
-    <div id="particles"></div>
+<div id="boot-screen">
 
-    <!-- Scroll Progress -->
+<div class="boot-window">
 
-    <div id="progress-bar"></div>
+<h1>
 
-    <!-- Navigation -->
+FOUNDATIONS OF
 
-    <header>
+COMPUTER ARCHITECTURE
 
-        <nav class="nav">
+</h1>
 
-            <a href="#" class="logo">
+<p id="boot-text">
 
-                <span class="logo-dot"></span>
+Initialising Portfolio...
 
-                JAVIER
+</p>
 
-            </a>
+<div class="boot-bar">
 
-            <ul class="nav-links">
+<div class="boot-progress"></div>
 
-                <li><a href="#about">About</a></li>
+</div>
 
-                <li><a href="#goals">Goals</a></li>
+</div>
 
-                <li><a href="#timeline">Timeline</a></li>
+</div>
 
-                <li><a href="#interviews">Interviews</a></li>
+<!--=============================
+BACKGROUND
+==============================-->
 
-                <li><a href="#journal">Journal</a></li>
+<div id="particles"></div>
 
-                <li><a href="#disassembly">Disassembly</a></li>
+<div class="grid-background"></div>
 
-            </ul>
+<div id="cursor-glow"></div>
 
-            <button id="menu-btn">
+<div id="progress-bar"></div>
 
-                ☰
+<!--=============================
+HEADER
+==============================-->
 
-            </button>
+<header>
 
-        </nav>
+<nav>
 
-    </header>
+<div class="logo">
 
-    <!-- Hero -->
+<div class="logo-dot"></div>
 
-    <main>
+<h2>
 
-        <section class="hero">
+JAVIER
 
-            <div class="hero-content">
+</h2>
 
-                <p class="eyebrow">
+</div>
 
-                    GUIDED LEARNING PROJECT
+<ul class="nav-links">
 
-                </p>
+<li>
 
-                <h1>
+<a href="#home">
 
-                    Foundations of
+Home
 
-                    <span id="typing"></span>
+</a>
 
-                </h1>
+</li>
 
-                <p class="hero-text">
+<li>
 
-                    Exploring the internal architecture of computers through
-                    research, interviews, hardware disassembly and practical
-                    experimentation.
+<a href="#about">
 
-                </p>
+About
 
-                <div class="hero-buttons">
+</a>
 
-                    <a href="#about" class="btn primary">
+</li>
 
-                        Explore Project
+<li>
 
-                    </a>
+<a href="#journey">
 
-                    <a href="#timeline" class="btn secondary">
+Journey
 
-                        View Timeline
+</a>
 
-                    </a>
+</li>
 
-                </div>
+<li>
 
-            </div>
+<a href="#hardware">
 
-            <aside class="hero-card">
+Hardware
 
-                <div class="terminal">
+</a>
 
-                    <div class="terminal-top">
+</li>
 
-                        <span></span>
-                        <span></span>
-                        <span></span>
+<li>
 
-                    </div>
+<a href="#resources">
 
-                    <div class="terminal-body">
+Resources
 
-<pre>
-> loading portfolio...
+</a>
 
-Status:
-████████████ 100%
+</li>
 
-Student:
-Tay Jie Wen Javier
+<li>
 
-Course:
-Computer Engineering
+<a href="#interview">
 
-Project:
+Interview
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#gallery">
+
+Gallery
+
+</a>
+
+</li>
+
+<li>
+
+<a href="#reflection">
+
+Reflection
+
+</a>
+
+</li>
+
+</ul>
+
+<div id="menu-btn">
+
+☰
+
+</div>
+
+</nav>
+
+</header>
+
+<!--=============================
+HERO
+==============================-->
+
+<section
+id="home"
+class="hero section">
+
+<div class="hero-left">
+
+<div class="hero-tag">
+
+TEMASEK POLYTECHNIC
+
+•
+
+ENGINEERING PORTFOLIO
+
+</div>
+
+<h1>
+
+Foundations of
+
+<span id="typing">
+
 Computer Architecture
 
-State:
-READY
-</pre>
+</span>
 
-                    </div>
+</h1>
 
-                </div>
+<p>
 
-            </aside>
+This portfolio showcases my complete learning
+journey throughout the Computer Architecture
+project.
 
-            <div class="hero-scroll">
+Instead of simply documenting my work,
+it presents how I developed my understanding
+through research, professional interviews,
+hardware exploration and personal reflection.
 
-                <span></span>
+</p>
 
-                
+<div class="hero-buttons">
 
-            </div>
+<a href="#about"
+class="primary-btn">
 
-        </section>
+Explore Journey
 
-        <!-- Statistics -->
+</a>
 
-        <section class="stats">
+<a href="#gallery"
+class="secondary-btn">
 
-            <article>
+Gallery
 
-                <h2 class="counter" data-target="17">0</h2>
+</a>
 
-                <p>Weeks Planned</p>
+</div>
 
-            </article>
+<div class="hero-stats">
 
-            <article>
+<div class="hero-card">
 
-                <h2 class="counter" data-target="2">0</h2>
+<h2
+class="counter"
+data-target="15">
 
-                <p>Industry Interviews</p>
+0
 
-            </article>
+</h2>
 
-            <article>
+<p>
 
-                <h2 class="counter" data-target="6">0</h2>
+Weeks
 
-                <p>Learning Objectives</p>
+</p>
 
-            </article>
+</div>
 
-            <article>
+<div class="hero-card">
 
-                <h2 class="counter" data-target="1">0</h2>
+<h2
+class="counter"
+data-target="20">
 
-                <p>Final Portfolio</p>
+0
 
-            </article>
+</h2>
 
-        </section>
+<p>
 
-        <!-- ========================= -->
+Research
 
-        <!-- ABOUT -->
+</p>
 
-        <!-- ========================= -->
+</div>
 
-        <section id="about" class="section">
+<div class="hero-card">
 
-            <div class="section-heading">
+<h2
+class="counter"
+data-target="6">
 
-                <p>01</p>
+0
 
-                <h2>About The Project</h2>
+</h2>
 
-            </div>
+<p>
 
-                    <div class="profile-card">
-        
-            <img src="images/me.jpg" alt="My Photo">
-        
-            <div>
-        
-                <h3>Tay Jie Wen Javier</h3>
-        
-                <p>
-                I have always been interested in how computers work internally.
-                This project allows me to explore hardware beyond theory by
-                researching, interviewing professionals and performing an actual
-                computer disassembly.
-                </p>
-        
-            </div>
-        
-        </div>
+Hardware
 
-            <div class="section-intro">
+</p>
 
-                This project explores how modern computers work internally,
-                from the CPU and memory hierarchy to motherboards,
-                storage devices and hardware communication.
-                Through interviews, research and practical disassembly,
-                I aim to bridge theoretical knowledge with real-world
-                experience.
+</div>
 
-            </div>
+<div class="hero-card">
 
-            <div class="grid two">
+<h2
+class="counter"
+data-target="1">
 
-                <article class="card">
+0
 
-                    <h3>Current Knowledge</h3>
+</h2>
 
-                    <p>
+<p>
 
-                        Basic understanding of processors,
-                        RAM,
-                        storage,
-                        motherboards and computer assembly
-                        gained through coursework and personal interest.
+Interview
 
-                    </p>
+</p>
 
-                </article>
+</div>
 
-                <article class="card">
+</div>
 
-                    <h3>Knowledge To Develop</h3>
+</div>
 
-                    <ul>
+<div class="hero-right">
 
-                        <li>CPU architecture</li>
+<div class="motherboard">
 
-                        <li>Memory hierarchy</li>
+<div class="chip">
 
-                        <li>Hardware troubleshooting</li>
+CPU
 
-                        <li>Motherboard design</li>
+</div>
 
-                        <li>Hardware safety</li>
+<div class="ram">
 
-                        <li>System integration</li>
+RAM
 
-                    </ul>
+</div>
 
-                </article>
+<div class="ssd">
 
-                <article class="card">
+SSD
 
-                    <h3>Who Benefits</h3>
+</div>
 
-                    <ul>
+<div class="gpu">
 
-                        <li>Myself</li>
+GPU
 
-                        <li>Future classmates</li>
+</div>
 
-                        <li>Interview participants</li>
+<div class="psu">
 
-                        <li>Future employers</li>
+PSU
 
-                    </ul>
+</div>
 
-                </article>
+</div>
 
-                <article class="card">
-
-                    <h3>Challenges</h3>
-
-                    <ul>
-
-                        <li>Time management</li>
-
-                        <li>Hardware sourcing</li>
-
-                        <li>Understanding complex concepts</li>
-
-                        <li>Documenting every stage</li>
-
-                    </ul>
-
-                </article>
-
-            </div>
-
-        </section>
-        <!-- ========================= -->
-        <!-- GOALS -->
-        <!-- ========================= -->
-
-        <section id="goals" class="section">
-
-            <div class="section-heading">
-
-                <p>02</p>
-
-                <h2>Learning Goals</h2>
-
-            </div>
-
-            <div class="goal-list">
-
-                <article class="goal">
-
-                    <span>01</span>
-
-                    <div>
-
-                        <h3>Understand Computer Architecture</h3>
-
-                        <p>
-
-                            Develop a deeper understanding of how CPUs,
-                            memory, buses and storage devices communicate
-                            to execute instructions efficiently.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="goal">
-
-                    <span>02</span>
-
-                    <div>
-
-                        <h3>Hands-on Hardware Experience</h3>
-
-                        <p>
-
-                            Safely disassemble a computer, identify every
-                            component and understand how each contributes
-                            to the overall system.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="goal">
-
-                    <span>03</span>
-
-                    <div>
-
-                        <h3>Apply Knowledge</h3>
-
-                        <p>
-
-                            Build or simulate a simple computer system
-                            while documenting my learning process,
-                            reflections and improvements.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-            <div class="attribute-wrapper">
-
-                <h3 class="subheading">
-
-                    TP Student Profile
-
-                </h3>
-
-                <div class="grid three">
-
-                    <article class="card attribute">
-
-                        <div class="attribute-top">
-
-                            <h4>Inquisitive</h4>
-
-                            <span>90%</span>
-
-                        </div>
-
-                        <div class="bar">
-
-                            <div class="fill" data-width="90"></div>
-
-                        </div>
-
-                        <p>
-
-                            Going beyond lectures by researching hardware
-                            architecture independently and validating
-                            concepts through interviews and practical work.
-
-                        </p>
-
-                    </article>
-
-                    <article class="card attribute">
-
-                        <div class="attribute-top">
-
-                            <h4>Digitally Fluent</h4>
-
-                            <span>88%</span>
-
-                        </div>
-
-                        <div class="bar">
-
-                            <div class="fill" data-width="88"></div>
-
-                        </div>
-
-                        <p>
-
-                            Improving practical hardware skills,
-                            understanding specifications and confidently
-                            working with computer components.
-
-                        </p>
-
-                    </article>
-
-                    <article class="card attribute">
-
-                        <div class="attribute-top">
-
-                            <h4>Growth Mindset</h4>
-
-                            <span>92%</span>
-
-                        </div>
-
-                        <div class="bar">
-
-                            <div class="fill" data-width="92"></div>
-
-                        </div>
-
-                        <p>
-
-                            Reflecting weekly, learning from mistakes and
-                            continuously refining my understanding
-                            throughout the project.
-
-                        </p>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-        <!-- ========================= -->
-        <!-- TIMELINE -->
-        <!-- ========================= -->
-
-        <section id="timeline" class="section">
-
-            <div class="section-heading">
-
-                <p>03</p>
-
-                <h2>Project Timeline</h2>
-
-            </div>
-
-            <div class="timeline">
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 1</span>
-
-                        <h3>Project Planning</h3>
-
-                        <p>
-
-                            Meet facilitator, discuss objectives,
-                            refine action plan and establish milestones.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 4</span>
-
-                        <h3>Background Research</h3>
-
-                        <p>
-
-                            Watch PC building videos and study the
-                            fundamentals of computer architecture.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 5</span>
-
-                        <h3>Component Research</h3>
-
-                        <p>
-
-                            Investigate CPUs, RAM, storage, buses,
-                            motherboards and prepare interview questions.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 6</span>
-
-                        <h3>Industry Interviews</h3>
-
-                        <p>
-
-                            Conduct interviews with my father and a
-                            hardware specialist to gain practical
-                            industry insights.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 10–11</span>
-
-                        <h3>Hardware Disassembly</h3>
-
-                        <p>
-
-                            Obtain an old computer, safely disassemble
-                            it and document every internal component.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 13</span>
-
-                        <h3>System Simulation</h3>
-
-                        <p>
-
-                            Build or simulate a simple computer system
-                            to reinforce concepts learnt during research.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 14–16</span>
-
-                        <h3>Portfolio Development</h3>
-
-                        <p>
-
-                            Build this interactive website,
-                            write weekly reflections and organise
-                            supporting evidence.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-                <article class="timeline-item">
-
-                    <div class="dot"></div>
-
-                    <div class="content">
-
-                        <span>Week 17</span>
-
-                        <h3>Final Submission</h3>
-
-                        <p>
-
-                            Review the portfolio,
-                            polish the design,
-                            check documentation and submit.
-
-                        </p>
-
-                    </div>
-
-                </article>
-
-            </div>
-
-        </section>
-       <!-- ========================= -->
-<!-- INTERVIEWS -->
-<!-- ========================= -->
-
-<section id="interviews" class="section">
-
-    <div class="section-heading">
-        <p>04</p>
-        <h2>Industry Interviews</h2>
-    </div>
-
-    <p class="section-intro">
-        To gain practical insights beyond textbooks,
-        I interviewed two professionals with different
-        backgrounds in computing and technology.
-    </p>
-
-    <!-- Tab Switcher -->
-    <div class="interview-tabs">
-        <button class="tab-btn active" data-tab="kannan">Mr Kannan — Hardware</button>
-        <button class="tab-btn" data-tab="dad">Dad — Network Security</button>
-    </div>
-
-    <!-- Mr Kannan -->
-    <div class="interview-panel active" id="tab-kannan">
-
-        <div class="interviewee-card">
-            <div class="interviewee-info">
-                <h3>Kannan G Haribol</h3>
-                <span>Software Solutions · Hardware Specialist</span>
-                <p>Computer Engineering graduate who worked at Intel for 6–7 years and ran his own company managing servers, ERP systems and dedicated networks. Strong advocate for hardware fundamentals.</p>
-            </div>
-            <blockquote>
-                "Be strong and clear in the fundamentals — if your fundamentals are strong, you can work in many things."
-            </blockquote>
-        </div>
-
-        <div class="qa-list">
-
-            <div class="qa-item">
-                <p class="q">Could you briefly share your professional background?</p>
-                <p class="a">Mr Kannan studied Computer Engineering and initially went into software programming before moving more toward the hardware side. He worked at Intel for around 6–7 years and also spent time in the semiconductor business. He later started his own company handling ERP systems, server management, dedicated servers and VPN setups.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">What first sparked your interest in computers and technology?</p>
-                <p class="a">During secondary school, he was deciding between medicine and IT. He chose IT because he saw how technology was emerging and how engineering was behind everything — clothes, kitchens, houses. He was amazed by engineering concepts and felt the industry was booming. Today, he notes that hardware and everyday life are almost inseparable.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">How has your understanding of computer hardware evolved throughout your career?</p>
-                <p class="a">Between the 1980s and 2010, hardware upgrades were slow — moving from old processors took a year or two. Now the pace has accelerated dramatically due to the number of researchers and the influence of AI. Quantum computing is also progressing rapidly. He noted that most people today focus on the programming side, but he was impressed that I was exploring architecture — how data is stored and processed — which many people overlook.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">How do the CPU, RAM, storage and motherboard work together when a program runs?</p>
-                <p class="a">He used the human body as an analogy: the CPU is the brain, the monitor is the eyes, and the motherboard is the nervous system connecting everything. RAM is like your working memory — the smarter you are, the more you can hold at once. When you open an app, it loads from storage into RAM so the CPU can process it efficiently, then sends the output to the GPU for display.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">What are the most important concepts students should understand to go deeper?</p>
-                <p class="a">Always be strong in the fundamentals first. He used a cooking analogy — if you know the basic recipe well, you can mix and match to create something unique. Fundamentals let you branch into both hardware and software. For example, when you press a key, the value is stored in ROM, sent to the GPU, and displayed as pixels — the computer doesn't know what the letter is, it just turns pixels on or off.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">How does memory management affect performance?</p>
-                <p class="a">RAM used to be measured in megabytes; now it's gigabytes because of how much more we demand from computers. When you launch an app, the program loads from storage into RAM so the CPU can process it quickly. RAM acts as a temporary workspace — data is loaded in, processed, then the result is sent to the GPU. Without sufficient RAM, the system slows down significantly.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">What hardware considerations matter most when building or upgrading a computer?</p>
-                <p class="a">Always define your purpose first — gaming, programming, general use. Then check if your processor has enough computational capacity, followed by memory speed and size. For gaming specifically, the GPU becomes the priority. He recommended going through components one by one once the purpose is clearly defined.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">How do you troubleshoot a computer that fails to boot?</p>
-                <p class="a">He outlined a standard procedure: check the power supply first, then the motherboard indicators, then verify all signals are active. Listen for beep codes — different patterns indicate different faults. Try reseating the RAM as loose contact is a common cause. Disconnect external devices one by one, then check the BIOS, and finally inspect storage.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">Have you encountered any particularly challenging hardware issues?</p>
-                <p class="a">Yes — a Cisco collaboration device (a networked phone system) was causing a server to shut down every time it connected. The sudden signal it sent triggered the BIOS to shut the server down. Cisco had to be called in to resolve it. He also noted that hardware failures used to be more common — data recovery shops were everywhere when HDDs were standard. Now with SSDs and cloud backups, catastrophic hardware failure is less frequent.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">How does hardware contribute to overall system security?</p>
-                <p class="a">Both hardware and software security are equally important. Software handles antivirus and monitoring agents, but hardware security is growing — fingerprint sensors and hardware encryption are examples. As smart cities develop, every device from phones to fridges becomes a node in a network, making hardware trust critical. He also raised the concern of hardware manufactured with hidden backdoors that could silently send data to external servers.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">What emerging hardware technologies will have the greatest impact?</p>
-                <p class="a">In the next 3–5 years, AI will peak and GPUs and RAM (particularly from NVIDIA) will be central. After that, quantum computing will reshape the hardware landscape entirely. Beyond that, photonic computing — transferring signals through light instead of copper — will eliminate resistance-related bottlenecks and dramatically increase speed.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">What advice would you give students learning computer architecture?</p>
-                <p class="a">Always master the fundamentals first — know how a computer works at its core, as this builds genuine curiosity and makes you love what you do. He recommended building a Raspberry Pi project, like controlling a ceiling fan or setting up a home network, to develop real interest. He also suggested buying second-hand parts and assembling a PC yourself, or visiting Sim Lim Square to source components affordably.</p>
-            </div>
-
-            <div class="qa-item">
-                <p class="q">What do you wish you had learned earlier in your career?</p>
-                <p class="a">Cloud computing. His company missed the early wave of cloud adoption and had to catch up later. He wished they had recognised it sooner as it completely changed the industry landscape.</p>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Dad -->
-    <div class="interview-panel" id="tab-dad">
-
-        <div class="interviewee-card">
-            <div class="interviewee-info">
-                <h3>Dad</h3>
-                <span>Network Security · Firewalls · Software</span>
-                <p>Works in software and network security, specialising in firewall configuration and network infrastructure. Brings a real-world software and security perspective to complement the hardware focus of the project.</p>
-            </div>
-            <blockquote>
-                "Interview coming soon."
-            </blockquote>
-        </div>
-
-        <div class="qa-list">
-            <div class="qa-item">
-                <p class="q">When you first started working in software and network security, what did you find most confusing or surprising?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-            <div class="qa-item">
-                <p class="q">Can you walk me through how a firewall works at the software level?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-            <div class="qa-item">
-                <p class="q">What are the most common network security mistakes companies or individuals make?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-            <div class="qa-item">
-                <p class="q">How do you approach troubleshooting a network security issue step by step?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-            <div class="qa-item">
-                <p class="q">How has cybersecurity changed over the years — are today's threats fundamentally different?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-            <div class="qa-item">
-                <p class="q">How important is it to understand software deeply versus just configuring tools like firewalls and VPNs?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-            <div class="qa-item">
-                <p class="q">What is the most underestimated threat in network security today?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-            <div class="qa-item">
-                <p class="q">What advice would you give someone from a computer engineering background wanting to go into network security?</p>
-                <p class="a pending">Answer coming soon.</p>
-            </div>
-        </div>
-
-        <div class="note">
-            Interview with Dad is scheduled — transcript and answers will be added after completion.
-        </div>
-
-    </div>
+</div>
 
 </section>
-        <!-- ========================= -->
-        <!-- JOURNAL -->
-        <!-- ========================= -->
 
-        <section id="journal" class="section">
+<!--=============================
+ABOUT
+==============================-->
 
-            <div class="section-heading">
+<section
+id="about"
+class="section">
 
-                <p>05</p>
+<div class="section-title">
 
-                <h2>Weekly Learning Journal</h2>
+<span>
 
-            </div>
+01
 
-            <p class="section-intro">
+</span>
 
-                Every week I will document my progress,
-                challenges,
-                reflections
-                and improvements.
+<h2>
 
-            </p>
+About Me
 
-            <div class="grid three">
+</h2>
 
-                <article class="journal-card">
+</div>
 
-                    <span>Week 1</span>
+<div class="about-layout">
 
-                    <h3>Project Planning</h3>
+<div class="profile-card">
 
-                    <p>
+<img
+src="images/me.jpg"
+alt="Profile Photo">
 
-                        Meeting facilitator,
-                        discussing expectations
-                        and planning milestones.
+<h2>
 
-                    </p>
+Tay Jie Wen Javier
 
-                </article>
+</h2>
 
-                <article class="journal-card">
+<h4>
 
-                    <span>Week 2</span>
+Diploma in Computer Engineering
 
-                    <h3>Research</h3>
+</h4>
 
-                    <p>
+</div>
 
-                        Learning about computer architecture,
-                        CPU design,
-                        memory
-                        and buses.
+<div class="about-card">
 
-                    </p>
+<h3>
 
-                </article>
+Why I Chose This Project
 
-                <article class="journal-card">
+</h3>
 
-                    <span>Week 3</span>
+<p>
 
-                    <h3>Reflection</h3>
+I've always been curious about how
+computers actually function beyond simply
+using them.
 
-                    <p>
+This project gave me the opportunity
+to explore the internal hardware,
+understand computer architecture,
+learn directly from an industry professional
+and document my learning journey.
 
-                        Placeholder for weekly reflection.
+</p>
 
-                    </p>
+<div class="achievement-grid">
 
-                </article>
+<div class="achievement">
 
-                <article class="journal-card">
+🧠
 
-                    <span>Week 4</span>
+<h4>
 
-                    <h3>Reflection</h3>
+Architecture
 
-                    <p>
+</h4>
 
-                        Placeholder for weekly reflection.
+</div>
 
-                    </p>
+<div class="achievement">
 
-                </article>
+⚡
 
-                <article class="journal-card">
+<h4>
 
-                    <span>Week 5</span>
+Hardware
 
-                    <h3>Reflection</h3>
+</h4>
 
-                    <p>
+</div>
 
-                        Placeholder for weekly reflection.
+<div class="achievement">
 
-                    </p>
+📚
 
-                </article>
+<h4>
 
-                <article class="journal-card">
+Research
 
-                    <span>Week 6</span>
+</h4>
 
-                    <h3>Reflection</h3>
+</div>
 
-                    <p>
+<div class="achievement">
 
-                        Placeholder for weekly reflection.
+🎤
 
-                    </p>
+<h4>
 
-                </article>
+Interview
 
-            </div>
+</h4>
 
-        </section>
+</div>
 
-        <!-- ========================= -->
-        <!-- DISASSEMBLY -->
-        <!-- ========================= -->
+</div>
 
-        <section id="disassembly" class="section">
+</div>
 
-            <div class="section-heading">
+</div>
 
-                <p>06</p>
+</section>
 
-                <h2>Computer Disassembly</h2>
+<!-- =====================================================
+LEARNING JOURNEY
+====================================================== -->
 
-            </div>
+<section id="journey" class="section">
 
-            <p class="section-intro">
+<div class="section-title">
+<span>02</span>
+<h2>Learning Journey</h2>
+</div>
 
-                During Term Break,
-                I will disassemble an old computer,
-                identify every component,
-                document its purpose
-                and explain how it contributes to the overall system.
+<p class="section-subtitle">
 
-            </p>
+My progress throughout the Foundations of Computer
+Architecture project.
 
-            <div class="gallery">
+</p>
 
-                <figure class="photo">
+<div class="timeline">
 
-                    <img src="images/photo1.jpg" alt="Computer Component">
+<div class="timeline-item">
 
-                    <figcaption>
+<div class="timeline-icon">
+🎯
+</div>
 
-                        Motherboard Overview
+<div class="timeline-content">
 
-                    </figcaption>
+<h3>Project Objectives</h3>
 
-                </figure>
+<p>
 
-                <figure class="photo">
+Established clear learning goals to
+understand computer hardware,
+architecture and system design.
 
-                    <img src="images/photo2.jpg" alt="Computer Component">
+</p>
 
-                    <figcaption>
+</div>
 
-                        CPU Removal
+</div>
 
-                    </figcaption>
+<div class="timeline-item">
 
-                </figure>
+<div class="timeline-icon">
+📚
+</div>
 
-                <figure class="photo">
+<div class="timeline-content">
 
-                    <img src="images/photo3.jpg" alt="Computer Component">
+<h3>Research Phase</h3>
 
-                    <figcaption>
+<p>
 
-                        RAM Modules
+Studied IEEE papers,
+Cisco NetAcad,
+hardware articles and
+educational videos.
 
-                    </figcaption>
+</p>
 
-                </figure>
+</div>
 
-                <figure class="photo">
+</div>
 
-                    <img src="images/photo4.jpg" alt="Computer Component">
+<div class="timeline-item">
 
-                    <figcaption>
+<div class="timeline-icon">
+🎤
+</div>
 
-                        Storage Devices
+<div class="timeline-content">
 
-                    </figcaption>
+<h3>Industry Interview</h3>
 
-                </figure>
+<p>
 
-                <figure class="photo">
+Interviewed an industry professional
+to understand how computer
+architecture knowledge is applied
+in the real world.
 
-                    <img src="images/photo5.jpg" alt="Computer Component">
+</p>
 
-                    <figcaption>
+</div>
 
-                        Expansion Cards
+</div>
 
-                    </figcaption>
+<div class="timeline-item">
 
-                </figure>
+<div class="timeline-icon">
+🖥️
+</div>
 
-                <figure class="photo">
+<div class="timeline-content">
 
-                    <img src="images/photo6.jpg" alt="Computer Component">
+<h3>Hardware Exploration</h3>
 
-                    <figcaption>
+<p>
 
-                        Completed Disassembly
+Learnt the function of
+CPU,
+RAM,
+Motherboard,
+Storage,
+GPU
+and Power Supply.
 
-                    </figcaption>
+</p>
 
-                </figure>
+</div>
 
-            </div>
+</div>
 
-        </section>
+<div class="timeline-item">
 
-    </main>
+<div class="timeline-icon">
+🚀
+</div>
 
-    <!-- Lightbox -->
+<div class="timeline-content">
 
-    <div id="lightbox">
+<h3>Portfolio Development</h3>
 
-        <span id="close">&times;</span>
+<p>
 
-        <img id="lightbox-img" src="" alt="">
+Compiled reflections,
+evidence,
+research,
+photos
+and learning outcomes
+into one interactive website.
 
-        <p id="caption"></p>
+</p>
 
-    </div>
+</div>
 
-    <!-- Footer -->
+</div>
 
-    <footer>
+</div>
 
-        <div class="footer-content">
+</section>
 
-            <h2>
+<!-- =====================================================
+HARDWARE EXPLORER
+====================================================== -->
 
-                Thanks for Visiting
+<section id="hardware" class="section">
 
-            </h2>
+<div class="section-title">
 
-            <p>
+<span>03</span>
 
-                Foundations of Computer Architecture
+<h2>
 
-                Guided Learning Project
+Hardware Explorer
 
-            </p>
+</h2>
 
-            <div class="footer-info">
+</div>
 
-                <span>
+<p class="section-subtitle">
 
-                    Tay Jie Wen Javier
+Click each component to explore its purpose
+and what I learnt.
 
-                </span>
+</p>
 
-                <span>
+<div class="hardware-grid">
 
-                    2500998F
+<div class="hardware-card">
 
-                </span>
+<img src="images/cpu.jpg">
 
-                <span>
+<h3>
 
-                    Computer Engineering
+Central Processing Unit
 
-                </span>
+</h3>
 
-            </div>
+<p>
 
-        </div>
+The CPU executes instructions and
+controls every operation
+performed by the computer.
 
-    </footer>
+</p>
 
-    <script src="script.js"></script>
+<div class="progress">
+
+<div class="fill"
+data-width="95">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hardware-card">
+
+<img src="images/ram.jpg">
+
+<h3>
+
+Random Access Memory
+
+</h3>
+
+<p>
+
+Stores temporary data
+needed by programs
+currently running.
+
+</p>
+
+<div class="progress">
+
+<div class="fill"
+data-width="90">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hardware-card">
+
+<img src="images/motherboard.jpg">
+
+<h3>
+
+Motherboard
+
+</h3>
+
+<p>
+
+Connects every component
+and enables communication
+between hardware.
+
+</p>
+
+<div class="progress">
+
+<div class="fill"
+data-width="93">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hardware-card">
+
+<img src="images/ssd.jpg">
+
+<h3>
+
+Storage
+
+</h3>
+
+<p>
+
+Stores the operating system,
+applications
+and personal files.
+
+</p>
+
+<div class="progress">
+
+<div class="fill"
+data-width="88">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hardware-card">
+
+<img src="images/gpu.jpg">
+
+<h3>
+
+Graphics Card
+
+</h3>
+
+<p>
+
+Processes graphics
+and accelerates
+visual rendering.
+
+</p>
+
+<div class="progress">
+
+<div class="fill"
+data-width="84">
+
+</div>
+
+</div>
+
+</div>
+
+<div class="hardware-card">
+
+<img src="images/psu.jpg">
+
+<h3>
+
+Power Supply
+
+</h3>
+
+<p>
+
+Converts AC power
+into stable DC voltage
+for every component.
+
+</p>
+
+<div class="progress">
+
+<div class="fill"
+data-width="86">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+PROJECT DASHBOARD
+====================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>04</span>
+
+<h2>
+
+Engineering Dashboard
+
+</h2>
+
+</div>
+
+<div class="dashboard-grid">
+
+<div class="dashboard-card">
+
+<h1
+class="counter"
+data-target="15">
+
+0
+
+</h1>
+
+<p>
+
+Weeks Completed
+
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h1
+class="counter"
+data-target="20">
+
+0
+
+</h1>
+
+<p>
+
+Research Resources
+
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h1
+class="counter"
+data-target="6">
+
+0
+
+</h1>
+
+<p>
+
+Hardware Components
+
+</p>
+
+</div>
+
+<div class="dashboard-card">
+
+<h1
+class="counter"
+data-target="100">
+
+0
+
+</h1>
+
+<p>
+
+Portfolio Progress
+
+</p>
+
+</div>
+
+</div>
+
+<div class="quote-card">
+
+<h3>
+
+💡 Engineering Insight
+
+</h3>
+
+<p>
+
+"Understanding hardware isn't about memorising specifications.
+It's about understanding how every component works together
+to solve real-world computing problems."
+
+</p>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+RESOURCE REVIEWS
+====================================================== -->
+
+<section id="resources" class="section">
+
+<div class="section-title">
+<span>05</span>
+<h2>Resource Reviews</h2>
+</div>
+
+<p class="section-subtitle">
+Throughout this project, I evaluated different learning resources based on their usefulness, technical accuracy and practical value.
+</p>
+
+<div class="resource-grid">
+
+<div class="resource-card">
+
+<img src="images/ieee.png" alt="IEEE">
+
+<div class="resource-body">
+
+<h3>IEEE Xplore</h3>
+
+<div class="rating">
+★★★★★
+</div>
+
+<div class="resource-bars">
+
+<div class="bar">
+
+<span>Technical Accuracy</span>
+
+<div class="progress">
+<div class="fill" data-width="100"></div>
+</div>
+
+</div>
+
+<div class="bar">
+
+<span>Ease of Understanding</span>
+
+<div class="progress">
+<div class="fill" data-width="85"></div>
+</div>
+
+</div>
+
+<div class="bar">
+
+<span>Usefulness</span>
+
+<div class="progress">
+<div class="fill" data-width="100"></div>
+</div>
+
+</div>
+
+</div>
+
+<p>
+
+IEEE provided the most reliable technical
+information and helped me understand
+processor architecture and hardware design.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="resource-card">
+
+<img src="images/netacad.png">
+
+<div class="resource-body">
+
+<h3>Cisco NetAcad</h3>
+
+<div class="rating">
+★★★★☆
+</div>
+
+<div class="resource-bars">
+
+<div class="bar">
+
+<span>Learning Experience</span>
+
+<div class="progress">
+<div class="fill" data-width="95"></div>
+</div>
+
+</div>
+
+<div class="bar">
+
+<span>Practical Examples</span>
+
+<div class="progress">
+<div class="fill" data-width="90"></div>
+</div>
+
+</div>
+
+</div>
+
+<p>
+
+Interactive activities and quizzes
+made difficult concepts much easier
+to understand.
+
+</p>
+
+</div>
+
+</div>
+
+<div class="resource-card">
+
+<img src="images/youtube.png">
+
+<div class="resource-body">
+
+<h3>YouTube</h3>
+
+<div class="rating">
+★★★★★
+</div>
+
+<div class="resource-bars">
+
+<div class="bar">
+
+<span>Visual Learning</span>
+
+<div class="progress">
+<div class="fill" data-width="98"></div>
+</div>
+
+</div>
+
+<div class="bar">
+
+<span>Real Demonstrations</span>
+
+<div class="progress">
+<div class="fill" data-width="96"></div>
+</div>
+
+</div>
+
+</div>
+
+<p>
+
+Watching computer assembly and
+architecture videos helped me
+visualise how hardware components
+work together.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+INTERVIEW HIGHLIGHTS
+====================================================== -->
+
+<section id="interview" class="section">
+
+<div class="section-title">
+
+<span>06</span>
+
+<h2>Interview Highlights</h2>
+
+</div>
+
+<div class="interview-grid">
+
+<div class="question-card">
+
+<h3>💬 Question</h3>
+
+<p>
+
+"What advice would you give students
+who are learning Computer Architecture?"
+
+</p>
+
+</div>
+
+<div class="answer-card">
+
+<h3>👨‍💼 Industry Response</h3>
+
+<p>
+
+Focus on understanding concepts,
+gain hands-on experience and continue
+learning because technology changes rapidly.
+
+</p>
+
+</div>
+
+<div class="reflection-card">
+
+<h3>🧠 My Reflection</h3>
+
+<p>
+
+This advice encouraged me to spend
+more time exploring hardware rather than
+memorising specifications.
+
+</p>
+
+</div>
+
+<div class="application-card">
+
+<h3>🚀 How I Applied It</h3>
+
+<p>
+
+I reviewed additional resources,
+studied real computer components,
+and documented everything throughout
+this portfolio.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+RESEARCH MATERIALS
+====================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>07</span>
+
+<h2>Research Materials</h2>
+
+</div>
+
+<div class="research-grid">
+
+<div class="research-item">
+
+<img src="images/notes.jpg">
+
+<h3>Interview Notes</h3>
+
+<p>
+
+Summary and key learning points.
+
+</p>
+
+</div>
+
+<div class="research-item">
+
+<img src="images/article.jpg">
+
+<h3>IEEE Research Papers</h3>
+
+<p>
+
+Academic papers used throughout the project.
+
+</p>
+
+</div>
+
+<div class="research-item">
+
+<img src="images/video.jpg">
+
+<h3>Video Tutorials</h3>
+
+<p>
+
+Hardware demonstrations and walkthroughs.
+
+</p>
+
+</div>
+
+<div class="research-item">
+
+<img src="images/book.jpg">
+
+<h3>Reference Books</h3>
+
+<p>
+
+Additional reading materials and textbooks.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+PHOTO GALLERY
+====================================================== -->
+
+<section id="gallery" class="section">
+
+<div class="section-title">
+
+<span>08</span>
+
+<h2>Project Gallery</h2>
+
+</div>
+
+<div class="gallery-grid">
+
+<figure class="photo">
+
+<img src="images/photo1.jpg">
+
+<figcaption>
+
+Interview Session
+
+</figcaption>
+
+</figure>
+
+<figure class="photo">
+
+<img src="images/photo2.jpg">
+
+<figcaption>
+
+Research Process
+
+</figcaption>
+
+</figure>
+
+<figure class="photo">
+
+<img src="images/photo3.jpg">
+
+<figcaption>
+
+Hardware Exploration
+
+</figcaption>
+
+</figure>
+
+<figure class="photo">
+
+<img src="images/photo4.jpg">
+
+<figcaption>
+
+Motherboard Components
+
+</figcaption>
+
+</figure>
+
+<figure class="photo">
+
+<img src="images/photo5.jpg">
+
+<figcaption>
+
+Reflection Notes
+
+</figcaption>
+
+</figure>
+
+<figure class="photo">
+
+<img src="images/photo6.jpg">
+
+<figcaption>
+
+Portfolio Development
+
+</figcaption>
+
+</figure>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+LEARNING OUTCOMES
+====================================================== -->
+
+<section id="reflection" class="section">
+
+<div class="section-title">
+<span>09</span>
+<h2>Learning Outcomes</h2>
+</div>
+
+<p class="section-subtitle">
+
+Throughout this project, I developed technical knowledge,
+research skills and a deeper appreciation for how
+computer hardware supports modern computing.
+
+</p>
+
+<div class="outcomes-grid">
+
+<div class="outcome-card">
+
+<div class="outcome-icon">🧠</div>
+
+<h3>Computer Architecture</h3>
+
+<p>
+
+Understand how hardware components
+work together to execute instructions
+and process data.
+
+</p>
+
+</div>
+
+<div class="outcome-card">
+
+<div class="outcome-icon">🖥️</div>
+
+<h3>Hardware Components</h3>
+
+<p>
+
+Learnt the purpose and interaction
+between CPU, RAM, Storage,
+Motherboard, GPU and PSU.
+
+</p>
+
+</div>
+
+<div class="outcome-card">
+
+<div class="outcome-icon">📚</div>
+
+<h3>Research Skills</h3>
+
+<p>
+
+Evaluated credible engineering
+resources and summarised
+technical information.
+
+</p>
+
+</div>
+
+<div class="outcome-card">
+
+<div class="outcome-icon">🤝</div>
+
+<h3>Professional Communication</h3>
+
+<p>
+
+Improved interviewing,
+reflection and documentation skills.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+SKILLS DASHBOARD
+====================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>10</span>
+
+<h2>Skills Dashboard</h2>
+
+</div>
+
+<div class="skills-grid">
+
+<div class="skill-card">
+
+<h3>Computer Architecture</h3>
+
+<div class="progress">
+
+<div class="fill" data-width="95"></div>
+
+</div>
+
+<span>95%</span>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Hardware Knowledge</h3>
+
+<div class="progress">
+
+<div class="fill" data-width="92"></div>
+
+</div>
+
+<span>92%</span>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Research</h3>
+
+<div class="progress">
+
+<div class="fill" data-width="94"></div>
+
+</div>
+
+<span>94%</span>
+
+</div>
+
+<div class="skill-card">
+
+<h3>Reflection</h3>
+
+<div class="progress">
+
+<div class="fill" data-width="90"></div>
+
+</div>
+
+<span>90%</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+WHAT'S NEXT
+====================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>11</span>
+
+<h2>What's Next?</h2>
+
+</div>
+
+<div class="roadmap">
+
+<div class="roadmap-item">
+
+<div class="road-number">01</div>
+
+<h3>Linux</h3>
+
+<p>
+
+Learn Linux administration and shell scripting.
+
+</p>
+
+</div>
+
+<div class="roadmap-item">
+
+<div class="road-number">02</div>
+
+<h3>Networking</h3>
+
+<p>
+
+Continue studying networking through Cisco NetAcad.
+
+</p>
+
+</div>
+
+<div class="roadmap-item">
+
+<div class="road-number">03</div>
+
+<h3>Embedded Systems</h3>
+
+<p>
+
+Develop projects using Arduino and Raspberry Pi.
+
+</p>
+
+</div>
+
+<div class="roadmap-item">
+
+<div class="road-number">04</div>
+
+<h3>Build a PC</h3>
+
+<p>
+
+Apply my hardware knowledge by assembling a complete desktop.
+
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- =====================================================
+BEFORE VS AFTER
+====================================================== -->
+
+<section class="section">
+
+<div class="section-title">
+
+<span>12</span>
+
+<h2>Growth Reflection</h2>
+
+</div>
+
+<table class="comparison-table">
+
+<thead>
+
+<tr>
+
+<th>Before</th>
+
+<th>After</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>Basic understanding of hardware.</td>
+
+<td>Confident explaining how hardware works together.</td>
+
+</tr>
+
+<tr>
+
+<td>Relied mainly on theory.</td>
+
+<td>Applied research and industry advice.</td>
+
+</tr>
+
+<tr>
+
+<td>Little troubleshooting knowledge.</td>
+
+<td>Understand systematic troubleshooting methods.</td>
+
+</tr>
+
+<tr>
+
+<td>Limited confidence discussing hardware.</td>
+
+<td>Comfortable communicating technical concepts.</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</section>
+
+<!-- =====================================================
+FINAL MESSAGE
+====================================================== -->
+
+<section class="contact-section">
+
+<h2>
+
+Thank You
+
+</h2>
+
+<p>
+
+This portfolio reflects my learning journey throughout the
+Foundations of Computer Architecture project.
+I appreciate the opportunity to explore engineering concepts,
+learn from industry professionals and continuously improve my technical knowledge.
+
+</p>
+
+<div class="contact-buttons">
+
+<a href="mailto:tayjavier@outlook.com"
+class="primary-btn">
+
+Email Me
+
+</a>
+
+<a href="#home"
+class="secondary-btn">
+
+Back to Top
+
+</a>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-content">
+
+<h2>
+
+Tay Jie Wen Javier
+
+</h2>
+
+<p>
+
+Diploma in Computer Engineering
+
+</p>
+
+<p>
+
+Temasek Polytechnic
+
+</p>
+
+<p>
+
+© 2026 Engineering Portfolio
+
+</p>
+
+</div>
+
+</footer>
+
+<!-- =====================================================
+LIGHTBOX
+====================================================== -->
+
+<div id="lightbox">
+
+<span id="close">&times;</span>
+
+<img id="lightbox-img" alt="Expanded image">
+
+<p id="caption"></p>
+
+</div>
+
+<script src="script.js"></script>
 
 </body>
 
